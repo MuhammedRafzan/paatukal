@@ -1,0 +1,135 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, #4d4d6b, #07202e);
+    color: white;
+}
+
+/* Music background */
+.music-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    background: linear-gradient(45deg, #171a44 40%, #030934 70%);
+}
+
+.symbol {
+    position: absolute;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.3);
+    animation: float 10s linear infinite, pulse 3s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+/* Floating animation */
+@keyframes float {
+    from {
+        transform: translateY(100vh) rotate(0deg);
+    }
+    to {
+        transform: translateY(-10vh) rotate(360deg);
+    }
+}
+
+/* Pulsing effect for symbols */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.2);
+    }
+}
+
+/* Randomized symbol positions */
+.symbol:nth-child(1) { left: 10%; animation-delay: 0s; }
+.symbol:nth-child(2) { left: 20%; animation-delay: 2s; }
+.symbol:nth-child(3) { left: 35%; animation-delay: 4s; }
+.symbol:nth-child(4) { left: 50%; animation-delay: 1s; }
+.symbol:nth-child(5) { left: 65%; animation-delay: 3s; }
+.symbol:nth-child(6) { left: 80%; animation-delay: 5s; }
+.symbol:nth-child(7) { left: 90%; animation-delay: 0.5s; }
+.symbol:nth-child(8) { left: 25%; animation-delay: 6s; }
+
+/* Music Player */
+.music-player {
+    z-index: 1;
+    text-align: center;
+    padding: 2rem;
+    margin: 1rem auto;
+    width: 90%;
+    max-width: 500px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.music-player h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.track-btn {
+    background-color: #c34704;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.track-btn:hover {
+    background-color: #907300;
+    transform: scale(1.05);
+}
+
+audio {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .music-player h1 {
+        font-size: 1.5rem;
+    }
+
+    .track-btn {
+        font-size: 0.9rem;
+        padding: 0.7rem 1.2rem;
+    }
+
+    .symbol {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .music-player h1 {
+        font-size: 1.2rem;
+    }
+
+    .track-btn {
+        font-size: 0.8rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .symbol {
+        font-size: 1.8rem;
+    }
+}
